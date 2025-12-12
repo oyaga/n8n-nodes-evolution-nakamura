@@ -1,19 +1,21 @@
 {
-  "name": "n8n-nodes-evolution-api",
-  "version": "1.0.4",
-  "description": "A Evolution API é um hub de canais com foco no WhatsApp",
+  "name": "n8n-nodes-evolution-nakamura",
+  "version": "1.0.0",
+  "description": "Fork customizado do n8n-nodes-evolution-api com operações adicionais (Carousel, Location, etc)",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n-community-node-package",
+    "evolution-api",
+    "nakamura"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/oyaga/n8n-nodes-evolution-nakamura",
   "author": {
-    "name": "OrionDesign",
-    "email": "contato@oriondesign.art.br"
+    "name": "Oyaga (fork de OrionDesign)",
+    "email": "contato@aikanakamura.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/oriondesign2015/n8n-nodes-evolution-api.git"
+    "url": "https://github.com/oyaga/n8n-nodes-evolution-nakamura.git"
   },
   "engines": {
     "node": ">=18.10",

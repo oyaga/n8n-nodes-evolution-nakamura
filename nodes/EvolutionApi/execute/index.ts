@@ -27,6 +27,9 @@ import { sendList } from './messages/sendList';
 import { sendButtons } from './messages/sendButtons';
 import { sendPix } from './messages/sendPix';
 import { sendReaction } from './messages/sendReaction';
+import { sendCarousel } from './messages/sendCarousel';
+import { sendLocation } from './messages/sendLocation';
+import { sendSticker } from './messages/sendSticker';
 import { createGroup } from './groups/createGroup';
 import { updateGroupPicture } from './groups/updateGroupPicture';
 import { updateGroupName } from './groups/updateGroupName';
@@ -95,6 +98,9 @@ export const resourceOperationsFunctions: ResourceOperationFunctions = {
 		'send-stories': sendStories,
 		'send-pix': sendPix,
 		'send-reaction': sendReaction,
+		'send-carousel': sendCarousel,
+		'send-location': sendLocation,
+		'send-sticker': sendSticker,
 	},
 	'events-api': {
 		'webhook': setWebhook,

@@ -113,6 +113,30 @@ export const messagesOperationsOptions: INodeProperties = {
 			description: 'Adiciona uma reação em uma mensagem',
 			value: 'send-reaction',
 		},
+
+		// Opção = Enviar Carousel (NOVO)
+		{
+			name: 'Enviar Carousel',
+			action: 'Enviar carousel',
+			description: 'Envia mensagem com múltiplos cards deslizáveis',
+			value: 'send-carousel',
+		},
+
+		// Opção = Enviar Localização (NOVO)
+		{
+			name: 'Enviar Localização',
+			action: 'Enviar localização',
+			description: 'Envia localização com coordenadas GPS',
+			value: 'send-location',
+		},
+
+		// Opção = Enviar Sticker (NOVO)
+		{
+			name: 'Enviar Sticker',
+			action: 'Enviar sticker',
+			description: 'Envia figurinha/sticker',
+			value: 'send-sticker',
+		},
 	],
 	// Definindo como padrão a opção "Enviar Texto"
 	default: 'send-text',

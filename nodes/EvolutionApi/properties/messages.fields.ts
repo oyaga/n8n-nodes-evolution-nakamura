@@ -1918,5 +1918,295 @@ export const messagesFields: INodeProperties[] = [
 				operation: ['send-reaction'],
 			},
 		},
-	}
+	},
+
+	// ==========================================
+	// NOVAS OPERAÇÕES - NAKAMURA FORK
+	// ==========================================
+
+	// Campos = Enviar Carousel (NOVO)
+	{
+		displayName: 'Nome Da Instância',
+		name: 'instanceName',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'Digite o nome da instância que vai enviar o carousel',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-carousel'],
+			},
+		},
+	},
+	{
+		displayName: 'Número Do Destinatário',
+		name: 'remoteJid',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'RemoteJid do destinatário',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-carousel'],
+			},
+		},
+	},
+	{
+		displayName: 'Cards',
+		name: 'cards',
+		type: 'fixedCollection',
+		typeOptions: {
+			multipleValues: true,
+		},
+		default: { cardValues: [] },
+		description: 'Cards do carousel (máximo 10)',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-carousel'],
+			},
+		},
+		options: [
+			{
+				name: 'cardValues',
+				displayName: 'Card',
+				values: [
+					{
+						displayName: 'Header',
+						name: 'header',
+						type: 'string',
+						default: '',
+						description: 'Cabeçalho do card',
+					},
+					{
+						displayName: 'Título',
+						name: 'title',
+						type: 'string',
+						default: '',
+						required: true,
+						description: 'Título do card',
+					},
+					{
+						displayName: 'Descrição',
+						name: 'description',
+						type: 'string',
+						default: '',
+						description: 'Descrição do card',
+					},
+					{
+						displayName: 'Footer',
+						name: 'footer',
+						type: 'string',
+						default: '',
+						description: 'Rodapé do card',
+					},
+					{
+						displayName: 'URL da Imagem',
+						name: 'thumbnailUrl',
+						type: 'string',
+						default: '',
+						description: 'URL da imagem do card',
+					},
+				],
+			},
+		],
+	},
+	{
+		displayName: 'Opções',
+		name: 'options_message',
+		type: 'collection',
+		placeholder: 'Adicionar Campo',
+		default: {},
+		options: [
+			{
+				displayName: 'Delay',
+				name: 'delay',
+				type: 'number',
+				default: 1200,
+				description: 'Delay em milisegundos antes de enviar',
+			},
+		],
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-carousel'],
+			},
+		},
+	},
+
+	// Campos = Enviar Localização (NOVO)
+	{
+		displayName: 'Nome Da Instância',
+		name: 'instanceName',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'Digite o nome da instância que vai enviar a localização',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-location'],
+			},
+		},
+	},
+	{
+		displayName: 'Número Do Destinatário',
+		name: 'remoteJid',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'RemoteJid do destinatário',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-location'],
+			},
+		},
+	},
+	{
+		displayName: 'Nome do Local',
+		name: 'locationName',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'Nome do local (ex: Loja Central)',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-location'],
+			},
+		},
+	},
+	{
+		displayName: 'Endereço',
+		name: 'locationAddress',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'Endereço completo do local',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-location'],
+			},
+		},
+	},
+	{
+		displayName: 'Latitude',
+		name: 'latitude',
+		type: 'number',
+		default: 0,
+		required: true,
+		description: 'Latitude (entre -90 e 90)',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-location'],
+			},
+		},
+	},
+	{
+		displayName: 'Longitude',
+		name: 'longitude',
+		type: 'number',
+		default: 0,
+		required: true,
+		description: 'Longitude (entre -180 e 180)',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-location'],
+			},
+		},
+	},
+	{
+		displayName: 'Opções',
+		name: 'options_message',
+		type: 'collection',
+		placeholder: 'Adicionar Campo',
+		default: {},
+		options: [
+			{
+				displayName: 'Delay',
+				name: 'delay',
+				type: 'number',
+				default: 1200,
+				description: 'Delay em milisegundos antes de enviar',
+			},
+		],
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-location'],
+			},
+		},
+	},
+
+	// Campos = Enviar Sticker (NOVO)
+	{
+		displayName: 'Nome Da Instância',
+		name: 'instanceName',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'Digite o nome da instância que vai enviar o sticker',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-sticker'],
+			},
+		},
+	},
+	{
+		displayName: 'Número Do Destinatário',
+		name: 'remoteJid',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'RemoteJid do destinatário',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-sticker'],
+			},
+		},
+	},
+	{
+		displayName: 'URL do Sticker',
+		name: 'stickerUrl',
+		type: 'string',
+		default: '',
+		required: true,
+		description: 'URL ou base64 do sticker (imagem PNG ou WebP)',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-sticker'],
+			},
+		},
+	},
+	{
+		displayName: 'Opções',
+		name: 'options_message',
+		type: 'collection',
+		placeholder: 'Adicionar Campo',
+		default: {},
+		options: [
+			{
+				displayName: 'Delay',
+				name: 'delay',
+				type: 'number',
+				default: 1200,
+				description: 'Delay em milisegundos antes de enviar',
+			},
+		],
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-sticker'],
+			},
+		},
+	},
 ];

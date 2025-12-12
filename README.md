@@ -1,268 +1,193 @@
-![image](https://github.com/user-attachments/assets/813b7b34-377c-42e8-9f1a-12e27e682c7f)
+# n8n-nodes-evolution-nakamura
 
-<p align="center"><br>
-Este Community Nodes é uma solução 100% gratuita, criada com o intuito de simplificar e auxiliar toda a comunidade a integrar e utilizar ao máximo os principais recursos oferecidos pela <b>Evolution API v2.2+</b> em seus projetos no N8N. <b>Desenvolvido por OrionDesign.</b>
-</p>
-<br>
-	
-<div align="center">
-  <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.npmjs.org%2Fdownloads%2Fpoint%2Flast-year%2Fn8n-nodes-evolution-api&query=downloads&style=for-the-badge&label=Total%20de%20Downloads&labelColor=%230d1117&color=%23359514&cacheSeconds=30&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fn8n-nodes-evolution-api" alt="Dynamic JSON Badge">
-</div>
-<br>
-</p>
-<p align="center">
-  <a href="https://oriondesign.art.br/whatsapp1"><img src="https://github.com/user-attachments/assets/5a469114-2054-4f01-85b2-51a282518658" alt=”SetupOrion” ></a>     
-  <a href="https://oriondesign.art.br/whatsapp2"><img src="https://github.com/user-attachments/assets/3e3580a9-ae8e-4209-84fc-cfc1c03a8f12" alt=”SetupOrion” ></a>     
-  <a href="https://oriondesign.art.br/whatsapp3"><img src="https://github.com/user-attachments/assets/91aa7733-c09c-474f-9483-54cb678213d2" alt=”SetupOrion” ></a>
-</p>
+Fork customizado do [n8n-nodes-evolution-api](https://github.com/oriondesign2015/n8n-nodes-evolution-api) com operações adicionais para a Evolution API.
 
+## 🆕 Novas Operações
 
-<h1></h1>
+Este fork adiciona as seguintes operações que não existem no pacote original:
 
-<h3>⚙️ Requisitos</h3>
+| Operação | Descrição | Endpoint |
+|----------|-----------|----------|
+| **sendCarousel** | Envia mensagem com múltiplos cards deslizáveis | `/message/sendCarousel` |
+| **sendLocation** | Envia localização com coordenadas GPS | `/message/sendLocation` |
+| **sendSticker** | Envia figurinha/sticker | `/message/sendSticker` |
 
-Para utilizar o nosso **Community Node**, é necessário atender aos seguintes requisitos:  
-- **N8N** na versão **1.54.4** ou superior  
-- **Evolution API** na versão **2.2.0** ou superior  
+---
 
-<h1></h1>
+## 📦 Instalação
 
-<h3>📌 Recursos Disponíveis</h3>
+### Via npm:
 
-<h3>Instância</h3>
-🖥️ Este recurso oferece acesso completo às principais funcionalidades relacionadas às instâncias da Evolution API. Ele permite realizar operações essenciais, como criar novas instâncias, conectar-se a elas, obter informações detalhadas, personalizar comportamentos, monitorar presença, reiniciar e até mesmo excluir instâncias de forma prática e eficiente.
-<br>
-<details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Criar Instancia</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Gerar Qr-Code</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Buscar Instancia</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Definir Comportamento</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Definir Presença</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Definir Proxy</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Buscar Proxy</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Desconectar WhatsApp</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Deletar Instancia</b></summary>
-	</details>
-</details>
+```bash
+cd ~/.n8n/nodes
+npm install n8n-nodes-evolution-nakamura
+```
 
-<h3> Mensagem</h3>
-✉️ Este recurso concentra todas as funcionalidades relacionadas ao envio e gerenciamento de mensagens através da Evolution API. Com ele, você pode enviar diversos tipos de conteúdo como textos, imagens, vídeos, áudios, documentos, contatos, listas interativas, botões e até mesmo mensagens PIX. Cada tipo de mensagem possui opções avançadas como delay, mentions, replies e formatações especiais. O recurso foi desenvolvido para proporcionar uma experiência completa de comunicação, permitindo explorar ao máximo os recursos nativos do WhatsApp de forma simples e eficiente.
-<br>
-<details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Enviar Texto</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Imagem</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Video</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Audio</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Documento</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Enquete</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Contato</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Lista</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Botão</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Pix</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Status</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Reagir a Mensagem</b></summary>
-	</details>
-</details>
+### Manual:
 
-<h3>Grupo</h3>
-👥 Com este recurso, você conta com um conjunto completo de funcionalidades para gerenciamento de grupos no WhatsApp por meio da Evolution API. Ele abrange desde a criação e administração de grupos até o gerenciamento de participantes, configuração de permissões, links de convite e mensagens temporárias. Tudo foi projetado para oferecer controle eficiente e simplificado na administração de grupos.
-<br>
-<details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Criar Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Atualizar Imagem do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Atualizar Nome do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Atualizar Descrição do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Atualizar Configurações do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Atualizar Membros</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Buscar Link de convite do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Revogar Link de convite do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Link de Convite do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Encontrar Participantes</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Mensagens Temporarias</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Sair do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Entrar no Grupo</b></summary>
-	</details>
-</details>
+```bash
+cd ~/.n8n/nodes
+git clone https://github.com/oyaga/n8n-nodes-evolution-nakamura.git
+cd n8n-nodes-evolution-nakamura
+pnpm install
+pnpm build
+```
 
-<h3>Chat</h3>
-💬 Este recurso disponibiliza um conjunto abrangente de ferramentas para o gerenciamento de conversas e interações utilizando a Evolution API. Com ele, é possível verificar números, enviar e gerenciar mensagens, manipular arquivos de mídia, controlar status de leitura, administrar contatos e monitorar presença. Todas as operações são desenvolvidas para proporcionar um controle completo e eficiente das comunicações, facilitando a gestão tanto de conversas individuais quanto em grupo.
-<br>
-<details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Verificar Numero</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Ler Mensagem</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Gerenciar Arquivoo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Marcar como Não lido</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Deletar Mensagem</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Buscar Foto de Perfil</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Obter Midia em Base64</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Editar Mensagem</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Presença</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Bloquear Contato</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Buscar Contatos</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Procurar Mensagens</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Procurar Status</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Procurar Chats</b></summary>
-	</details>
-</details>
+---
 
-<h3>Evento</h3>
-⚡ Este recurso oferece mecanismos avançados para integração e monitoramento em tempo real das atividades da Evolution API. Ele permite configurar e gerenciar Webhooks e RabbitMQ, possibilitando o acompanhamento de eventos como mensagens recebidas, alterações em grupos, status de conexão e muito mais. Essas funcionalidades foram projetadas para garantir uma comunicação ágil e automatizada entre sua aplicação e a API, promovendo respostas imediatas a diferentes eventos do WhatsApp.
-<br>
-<details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Webhook</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> RabbitMQ</b></summary>
-	</details>
-</details>
+## 🔧 Operações Disponíveis
 
-<h3>Integração</h3>
-🔗 Este recurso disponibiliza uma ampla gama de conectores para integrar a Evolution API a diversas plataformas e serviços externos. Entre as possibilidades estão conexões com Chatwoot para atendimento ao cliente, Evolution Bot para automações, Typebot para fluxos conversacionais, além de integrações com Flowise e Dify para soluções de inteligência artificial. Essas integrações ampliam as capacidades da API, permitindo criar soluções robustas e automatizadas para diferentes cenários de negócios.
-<br>
-<details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Chatwoot</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Evolution Bot</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Typebot</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Dify</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Floise</b></summary>
-	</details>
-</details>
+### Messages (15 operações)
 
-<h1></h1>
+- ✅ Enviar Texto
+- ✅ Enviar Imagem
+- ✅ Enviar Video
+- ✅ Enviar Audio
+- ✅ Enviar Documento
+- ✅ Enviar Enquete (Poll)
+- ✅ Enviar Contato
+- ✅ Enviar Lista
+- ✅ Enviar Botões
+- ✅ Enviar PIX
+- ✅ Enviar Status/Stories
+- ✅ Reagir Mensagem
+- 🆕 **Enviar Carousel**
+- 🆕 **Enviar Localização**
+- 🆕 **Enviar Sticker**
 
-<h3>🤝 Contribuição</h3>
+### Instance (9 operações)
 
-Contribua para o crescimento deste projeto! Você pode ajudar de diversas formas:  
-- **Pull Requests**: Envie melhorias, correções ou novas funcionalidades.  
-- **Issues**: Relate problemas ou sugira novas ideias.  
-- **Sugestões**: Compartilhe suas opiniões e feedbacks.  
-- **Documentação**: Ajude a melhorar ou expandir a documentação existente.  
+- Criar Instância Básica
+- Conectar Instância (QR Code)
+- Reiniciar Instância
+- Logout Instância
+- Definir Presença
+- Deletar Instância
+- Listar Instâncias
+- Configurações da Instância
+- Configurar Proxy
 
-<h1></h1>
+### Groups (14 operações)
 
-<h3>📌 Principais contribuidores</h3>
-<a align="center" href="https://github.com/oriondesign2015/n8n-nodes-evolution-api/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=oriondesign2015/n8n-nodes-evolution-api" />
-</a>
+- Criar Grupo
+- Atualizar Foto do Grupo
+- Atualizar Nome do Grupo
+- Atualizar Descrição do Grupo
+- Obter Link de Convite
+- Revogar Link de Convite
+- Enviar Link de Convite
+- Listar Grupos
+- Listar Participantes
+- Atualizar Participantes
+- Atualizar Configurações
+- Mensagens Temporárias
+- Entrar em Grupo
+- Sair do Grupo
 
-<h1></h1>
-<a href="https://star-history.com/#oriondesign2015/SetupOrion&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=oriondesign2015/SetupOrion&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=oriondesign2015/SetupOrion&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=oriondesign2015/SetupOrion&type=Date" />
- </picture>
-</a>
+### Chat (14 operações)
 
-<h1></h1>
-<p align="center">
-Desenvolvido com ❤️ por OrionDesign
-</p>
+- Verificar Número
+- Marcar como Lida
+- Gerenciar Arquivo
+- Marcar como Não Lida
+- Deletar Mensagem
+- Obter Foto de Perfil
+- Download de Mídia (Base64)
+- Editar Mensagem
+- Enviar Presença (digitando...)
+- Bloquear Contato
+- Buscar Contatos
+- Buscar Mensagens
+- Buscar Status de Mensagens
+- Buscar Chats
+
+### Integrations (5 operações)
+
+- Chatwoot
+- Typebot
+- Evolution Bot
+- DifyBot
+- Flowise Bot
+
+### Events (2 operações)
+
+- Webhook
+- RabbitMQ
+
+### Profile (8 operações)
+
+- Obter Perfil
+- Obter Perfil Comercial
+- Atualizar Nome
+- Atualizar Status
+- Atualizar Foto
+- Remover Foto
+- Obter Configurações de Privacidade
+- Atualizar Configurações de Privacidade
+
+---
+
+## 📋 Exemplo: Enviar Carousel
+
+```json
+{
+  "instanceName": "MinhaInstancia",
+  "remoteJid": "5544999999999",
+  "cards": [
+    {
+      "header": "Card 1",
+      "title": "Produto A",
+      "description": "Descrição do produto A",
+      "footer": "R$ 99,00",
+      "thumbnailUrl": "https://exemplo.com/imagem1.jpg"
+    },
+    {
+      "header": "Card 2",
+      "title": "Produto B",
+      "description": "Descrição do produto B",
+      "footer": "R$ 149,00",
+      "thumbnailUrl": "https://exemplo.com/imagem2.jpg"
+    }
+  ]
+}
+```
+
+---
+
+## 📋 Exemplo: Enviar Localização
+
+```json
+{
+  "instanceName": "MinhaInstancia",
+  "remoteJid": "5544999999999",
+  "locationName": "Loja Central",
+  "locationAddress": "Rua das Flores, 123 - Centro",
+  "latitude": -23.550520,
+  "longitude": -46.633308
+}
+```
+
+---
+
+## 📋 Exemplo: Enviar Sticker
+
+```json
+{
+  "instanceName": "MinhaInstancia",
+  "remoteJid": "5544999999999",
+  "stickerUrl": "https://exemplo.com/sticker.webp"
+}
+```
+
+---
+
+## 🔗 Créditos
+
+- Fork baseado em [n8n-nodes-evolution-api](https://github.com/oriondesign2015/n8n-nodes-evolution-api) by OrionDesign
+- Operações adicionais por Oyaga/Nakamura
+
+---
+
+## 📝 Licença
+
+MIT License
