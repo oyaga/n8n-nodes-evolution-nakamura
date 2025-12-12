@@ -6,6 +6,10 @@ Fork customizado do [n8n-nodes-evolution-api](https://github.com/oriondesign2015
 
 Este fork adiciona as seguintes operações que não existem no pacote original:
 
+> [!NOTE]
+> O nome do node no n8n será **"Evolution API NK"** para não conflitar com o node original.
+> Você pode ter ambos instalados simultaneamente.
+
 | Operação | Descrição | Endpoint |
 |----------|-----------|----------|
 | **sendCarousel** | Envia mensagem com múltiplos cards deslizáveis | `/message/sendCarousel` |
