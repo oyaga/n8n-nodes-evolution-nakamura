@@ -1,6 +1,6 @@
 {
-  "name": "n8n-nodes-evolution-nakamura",
-  "version": "1.0.0",
+  "name": "n8n-nodes-evolution-api",
+  "version": "1.0.5",
   "description": "Fork customizado do n8n-nodes-evolution-api com operações adicionais (Carousel, Location, etc)",
   "keywords": [
     "n8n-community-node-package",
