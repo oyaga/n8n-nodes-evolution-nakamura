@@ -2003,7 +2003,7 @@ export const messagesFields: INodeProperties[] = [
 						description: 'Rodapé do card',
 					},
 					{
-						displayName: 'URL da Imagem',
+						displayName: 'URL Da Imagem',
 						name: 'thumbnailUrl',
 						type: 'string',
 						default: '',
@@ -2066,7 +2066,7 @@ export const messagesFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Nome do Local',
+		displayName: 'Nome Do Local',
 		name: 'locationName',
 		type: 'string',
 		default: '',
@@ -2174,7 +2174,7 @@ export const messagesFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'URL do Sticker',
+		displayName: 'URL Do Sticker',
 		name: 'stickerUrl',
 		type: 'string',
 		default: '',

@@ -125,7 +125,7 @@ export const messagesOperationsOptions: INodeProperties = {
 		// Opção = Enviar Localização (NOVO)
 		{
 			name: 'Enviar Localização',
-			action: 'Enviar localização',
+			action: 'Enviar localiza o',
 			description: 'Envia localização com coordenadas GPS',
 			value: 'send-location',
 		},
