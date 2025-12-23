@@ -11,20 +11,28 @@ export async function sendCarousel(ef: IExecuteFunctions) {
         // Parâmetros obrigatórios
         const instanceName = ef.getNodeParameter('instanceName', 0) as string;
         const remoteJid = ef.getNodeParameter('remoteJid', 0) as string;
+
+        // Novos campos globais
+        const title = ef.getNodeParameter('title', 0, '') as string;
+        const text = ef.getNodeParameter('text', 0, '') as string;
+        const footer = ef.getNodeParameter('footer', 0, '') as string;
+
         const cards = ef.getNodeParameter('cards.cardValues', 0, []) as Array<{
             header?: string;
             title: string;
             description?: string;
             footer?: string;
             thumbnailUrl?: string;
-            buttons?: Array<{
-                type: 'reply' | 'copy' | 'url' | 'call';
-                displayText: string;
-                id?: string;
-                copyCode?: string;
-                url?: string;
-                phoneNumber?: string;
-            }>;
+            buttons?: {
+                buttonValues?: Array<{
+                    type: 'reply' | 'copy' | 'url' | 'call';
+                    displayText: string;
+                    id?: string;
+                    copyCode?: string;
+                    url?: string;
+                    phoneNumber?: string;
+                }>;
+            };
         }>;
 
         // Validação dos cards
@@ -47,6 +55,7 @@ export async function sendCarousel(ef: IExecuteFunctions) {
         // Opções adicionais
         const options = ef.getNodeParameter('options_message', 0, {}) as {
             delay?: number;
+            useBizTag?: boolean;
             quoted?: {
                 messageQuoted: {
                     messageId: string;
@@ -62,32 +71,47 @@ export async function sendCarousel(ef: IExecuteFunctions) {
 
         const body: any = {
             number: remoteJid,
-            cards: cards.map(card => ({
-                header: card.header,
-                title: card.title,
-                description: card.description,
-                footer: card.footer,
-                thumbnailUrl: card.thumbnailUrl,
-                buttons: card.buttons?.map(button => {
-                    const baseButton = {
-                        type: button.type,
+            title: title || undefined,
+            text: text || undefined,
+            footer: footer || undefined,
+            useBizTag: options.useBizTag || false,
+            cards: cards.map(card => {
+                // Mapeia botões do card
+                const mappedButtons = (card.buttons?.buttonValues || []).map(button => {
+                    const typeMap: Record<string, string> = {
+                        reply: 'quick_reply',
+                        url: 'cta_url',
+                        call: 'cta_call',
+                        copy: 'cta_copy',
+                    };
+
+                    const mappedButton: any = {
+                        type: typeMap[button.type] || button.type,
                         displayText: button.displayText,
                     };
 
-                    switch (button.type) {
-                        case 'reply':
-                            return { ...baseButton, id: button.id };
-                        case 'copy':
-                            return { ...baseButton, copyCode: button.copyCode };
-                        case 'url':
-                            return { ...baseButton, url: button.url };
-                        case 'call':
-                            return { ...baseButton, phoneNumber: button.phoneNumber };
-                        default:
-                            return baseButton;
-                    }
-                }),
-            })),
+                    if (button.type === 'reply') mappedButton.id = button.id;
+                    if (button.type === 'copy') mappedButton.copyCode = button.copyCode;
+                    if (button.type === 'url') mappedButton.url = button.url;
+                    if (button.type === 'call') mappedButton.phoneNumber = button.phoneNumber;
+
+                    return mappedButton;
+                });
+
+                // Mapeia campos do card para o padrão da API Evolution
+                const cardObj: any = {
+                    body: card.description ? `${card.title}\n${card.description}` : card.title, // API usa 'body'
+                    footer: card.footer || undefined,
+                    buttons: mappedButtons.length > 0 ? mappedButtons : undefined,
+                };
+
+                // Só adiciona image se tiver url válida
+                if (card.thumbnailUrl) {
+                    cardObj.image = card.thumbnailUrl;
+                }
+
+                return cardObj;
+            }),
         };
 
         if (options.delay) body.delay = options.delay;

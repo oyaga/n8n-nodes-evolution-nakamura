@@ -1954,6 +1954,48 @@ export const messagesFields: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'Título Global (Header)',
+		name: 'title',
+		type: 'string',
+		default: '',
+		placeholder: 'Ex: Promoções da Semana',
+		description: 'Cabeçalho global que aparece no topo do carousel',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-carousel'],
+			},
+		},
+	},
+	{
+		displayName: 'Texto Global (Body)',
+		name: 'text',
+		type: 'string',
+		default: '',
+		placeholder: 'Ex: Confira nossas ofertas especiais abaixo!',
+		description: 'Texto do corpo global que aparece abaixo do título do carousel',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-carousel'],
+			},
+		},
+	},
+	{
+		displayName: 'Rodapé Global (Footer)',
+		name: 'footer',
+		type: 'string',
+		default: '',
+		placeholder: 'Ex: Clique para saber mais',
+		description: 'Texto do rodapé global que aparece na parte inferior do carousel',
+		displayOptions: {
+			show: {
+				resource: ['messages-api'],
+				operation: ['send-carousel'],
+			},
+		},
+	},
+	{
 		displayName: 'Cards',
 		name: 'cards',
 		type: 'fixedCollection',
@@ -2009,6 +2051,102 @@ export const messagesFields: INodeProperties[] = [
 						default: '',
 						description: 'URL da imagem do card',
 					},
+					{
+						displayName: 'Botões',
+						name: 'buttons',
+						placeholder: 'Adicionar Botão',
+						type: 'fixedCollection',
+						typeOptions: {
+							multipleValues: true,
+							maxValue: 2,
+						},
+						default: {},
+						options: [
+							{
+								name: 'buttonValues',
+								displayName: 'Botão',
+								values: [
+									{
+										displayName: 'Tipo',
+										name: 'type',
+										type: 'options',
+										options: [
+											{
+												name: 'Resposta Rápida (Seguro)',
+												value: 'reply',
+											},
+											{
+												name: 'URL (Risco De Ban)',
+												value: 'url',
+											},
+											{
+												name: 'Ligar (Risco De Ban)',
+												value: 'call',
+											},
+											{
+												name: 'Copiar (Risco De Ban)',
+												value: 'copy',
+											},
+										],
+										default: 'reply',
+										description: '⚠️ Botões de URL, Ligar e Copiar exigem useBizTag=true e aumentam o risco de banimento!',
+									},
+									{
+										displayName: 'Texto Do Botão',
+										name: 'displayText',
+										type: 'string',
+										default: '',
+										required: true,
+									},
+									{
+										displayName: 'ID',
+										name: 'id',
+										type: 'string',
+										default: '',
+										displayOptions: {
+											show: {
+												type: ['reply'],
+											},
+										},
+									},
+									{
+										displayName: 'URL',
+										name: 'url',
+										type: 'string',
+										default: '',
+										displayOptions: {
+											show: {
+												type: ['url'],
+											},
+										},
+									},
+									{
+										displayName: 'Número De Telefone',
+										name: 'phoneNumber',
+										type: 'string',
+										default: '',
+										displayOptions: {
+											show: {
+												type: ['call'],
+											},
+										},
+									},
+									{
+										displayName: 'Código Para Copiar',
+										name: 'copyCode',
+										type: 'string',
+										default: '',
+										displayOptions: {
+											show: {
+												type: ['copy'],
+											},
+										},
+									},
+								],
+							},
+						],
+						description: 'Botões do card (máximo 2)',
+					},
 				],
 			},
 		],
@@ -2026,6 +2164,13 @@ export const messagesFields: INodeProperties[] = [
 				type: 'number',
 				default: 1200,
 				description: 'Delay em milisegundos antes de enviar',
+			},
+			{
+				displayName: 'Use Biz Tag (RISCO DE BAN)',
+				name: 'useBizTag',
+				type: 'boolean',
+				default: false,
+				description: 'Whether to enable Biz Tag. ⚠️ ATENÇÃO: Habilitar aumenta significativamente o risco de banimento pela Meta! Necessário para botões de URL, Call e Copy',
 			},
 		],
 		displayOptions: {
